@@ -4,8 +4,16 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import Script from "next/script";
+import MainNavigation from "../components/MainNavigation";
+import PropTypes from "prop-types";
 
-export default function Home({ posts, total_posts, total_pages }) {
+interface IHomeProps {
+    posts: IPost[];
+    total_posts: number;
+    total_pages: number;
+}
+
+export default function Home({ posts, total_posts, total_pages }: IHomeProps) {
     return (
         <div>
             <Head>
@@ -18,56 +26,19 @@ export default function Home({ posts, total_posts, total_pages }) {
 
             <main className={"antialiased text-gray-900 overflow-clip"}>
                 <div className="container mx-auto bg-white px-5">
-                    <div className={"mt-5 py-5 text-center"}>
-                        <h1 className={"site-title text-4xl mb-1.5"}>
-                            Coder&apos;s Desiderata
-                        </h1>
-                        <div>Be more than code.</div>
+                    <div className={"grid grid-cols-12"}>
+                        <div className="lg:col-start-4 lg:col-end-10 sm:col-start-1 sm:col-end-7">
+                            <div className={"mt-5 py-5 text-left"}>
+                                <h1 className={"site-title text-4xl mb-1.5"}>
+                                    Coder&apos;s Desiderata
+                                </h1>
+                                <div>Be more than code.</div>
+                            </div>
+                        </div>
                     </div>
-
-                    <nav
-                        className={
-                            "border-solid border-t-2 border-b-2 border-gray-600 mb-9"
-                        }
-                    >
-                        <ul className={"flex py-3 justify-center"}>
-                            <li className={"mr-6"}>
-                                <Link href="/">
-                                    <a>Home</a>
-                                </Link>
-                            </li>
-                            <li className={"mr-6"}>
-                                <Link href="/">
-                                    <a>Engineering</a>
-                                </Link>
-                            </li>
-                            <li className={"mr-6"}>
-                                <Link href="/">
-                                    <a>Gaming</a>
-                                </Link>
-                            </li>
-                            <li className={"mr-6"}>
-                                <Link href="/">
-                                    <a>Journey</a>
-                                </Link>
-                            </li>
-                            <li className={"mr-6"}>
-                                <Link href="/">
-                                    <a>Learning</a>
-                                </Link>
-                            </li>
-                            <li className={"mr-6"}>
-                                <Link href="/">
-                                    <a>Portfolio</a>
-                                </Link>
-                            </li>
-                            <li className={"mr-6"}>
-                                <Link href="/">
-                                    <a>About</a>
-                                </Link>
-                            </li>
-                        </ul>
-                    </nav>
+                </div>
+                <MainNavigation />
+                <div className="container mx-auto bg-white px-5">
                     <div className={"grid grid-cols-12"}>
                         <div className="lg:col-start-4 lg:col-end-10 sm:col-start-1 sm:col-end-7">
                             <BlogList
@@ -84,6 +55,18 @@ export default function Home({ posts, total_posts, total_pages }) {
         </div>
     );
 }
+
+Home.propTypes = {
+    posts: PropTypes.array,
+    total_posts: PropTypes.number,
+    total_pages: PropTypes.number,
+};
+
+Home.defaultProps = {
+    posts: [],
+    total_posts: 0,
+    total_pages: 0,
+};
 
 const fetch_posts = async (page_num: number) => {
     const res = await fetch(

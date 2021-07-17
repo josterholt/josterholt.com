@@ -36,7 +36,7 @@ class MyDocument extends Document {
                         />
                     </noscript>
                 </Head>
-                <body className="bg-gray-200 text-black dark:bg-black dark:text-white">
+                <body className="text-gray-900 dark:bg-black dark:text-white">
                     <Main />
                     <NextScript />
                 </body>

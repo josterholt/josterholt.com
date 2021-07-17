@@ -15,6 +15,7 @@
         font-family: "Terminal Dosis", Arial, Helvetica, Geneva, sans-serif;
     }
 }
+
 @import "../styles/enlighterjs.dracula.min.css";
 @tailwind components;
 @tailwind utilities;

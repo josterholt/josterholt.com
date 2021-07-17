@@ -1,7 +1,10 @@
 import React from "react";
 import Moment from "react-moment";
+import { useRouter } from "next/router";
 
 const BlogList = ({ posts }: any) => {
+    const router = useRouter();
+
     if (!posts) {
         return <div>No Posts</div>;
     }
@@ -13,8 +16,9 @@ const BlogList = ({ posts }: any) => {
     ];
 
     return (
-        <div>
+        <div className={"flex flex-col space-y-6"}>
             {posts.map((post: any) => {
+                const post_url = `/post/${post.id}`;
                 let post_content: string = post.content.rendered;
 
                 let has_break = false;
@@ -26,14 +30,22 @@ const BlogList = ({ posts }: any) => {
                     post_content = post_content.split(break_token)[0];
                 });
 
+                const gotoPost = () => {
+                    router.push(post_url);
+                };
+
                 return (
-                    <div key={post.id}>
-                        <h2 className={"text-3xl my-5 text-center"}>
-                            <span
+                    <div key={post.id} className={"my-8"}>
+                        <h2 className={"text-3xl mt-5 text-left"}>
+                            <a
                                 dangerouslySetInnerHTML={{
                                     __html: post.title.rendered,
                                 }}
-                            ></span>
+                                href={post_url}
+                                onClick={() => {
+                                    gotoPost();
+                                }}
+                            ></a>
                             <div className={"text-lg text-gray-600"}>
                                 <Moment
                                     date={post.date}
@@ -49,8 +61,15 @@ const BlogList = ({ posts }: any) => {
                         ></div>
 
                         {has_break ? (
-                            <div className={"bg-gray-100 px-2 py-5 text-right"}>
-                                Continue Reading
+                            <div className={"bg-gray-100 px-8 py-5 text-right"}>
+                                <a
+                                    href={post_url}
+                                    onClick={() => {
+                                        gotoPost();
+                                    }}
+                                >
+                                    Continue Reading
+                                </a>
                             </div>
                         ) : (
                             <div
