@@ -2,10 +2,11 @@ import Head from "next/head";
 import BlogList from "../components/BlogList";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import Link from "next/link";
 
 export default function Home({ posts, total_posts, total_pages }) {
     return (
-        <div className={styles.container}>
+        <div>
             <Head>
                 <title>Coder&apos;s Desideata | Be more than code</title>
                 <meta
@@ -16,13 +17,59 @@ export default function Home({ posts, total_posts, total_pages }) {
             </Head>
 
             <main className={"antialiased text-gray-900"}>
-                <div className="container mx-auto">
-                    <div>
-                        <h1 className={"text-4xl"}>Coder&apos;s Desiderata</h1>
+                <div className="container mx-auto bg-white px-5">
+                    <div className={"mt-5 py-5"}>
+                        <h1 className={"text-4xl mt-5 mb-2"}>
+                            Coder&apos;s Desiderata
+                        </h1>
                         <div>
                             Software Engineering Manager | Full Stack Engineer
                         </div>
                     </div>
+
+                    <nav
+                        className={
+                            "border-solid border-t-2 border-b-2 border-gray-600 mb-9"
+                        }
+                    >
+                        <ul className={"flex py-3 justify-center"}>
+                            <li className={"mr-6"}>
+                                <Link href="/">
+                                    <a>Home</a>
+                                </Link>
+                            </li>
+                            <li className={"mr-6"}>
+                                <Link href="/">
+                                    <a>Engineering</a>
+                                </Link>
+                            </li>
+                            <li className={"mr-6"}>
+                                <Link href="/">
+                                    <a>Gaming</a>
+                                </Link>
+                            </li>
+                            <li className={"mr-6"}>
+                                <Link href="/">
+                                    <a>Journey</a>
+                                </Link>
+                            </li>
+                            <li className={"mr-6"}>
+                                <Link href="/">
+                                    <a>Learning</a>
+                                </Link>
+                            </li>
+                            <li className={"mr-6"}>
+                                <Link href="/">
+                                    <a>Portfolio</a>
+                                </Link>
+                            </li>
+                            <li className={"mr-6"}>
+                                <Link href="/">
+                                    <a>About</a>
+                                </Link>
+                            </li>
+                        </ul>
+                    </nav>
 
                     <BlogList
                         posts={posts}

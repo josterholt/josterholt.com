@@ -1,4 +1,5 @@
 import React from "react";
+import Moment from "react-moment";
 
 const BlogList = ({ posts }: any) => {
     if (!posts) {
@@ -27,12 +28,19 @@ const BlogList = ({ posts }: any) => {
 
                 return (
                     <div key={post.id}>
-                        <h2
-                            className={"text-3xl my-5"}
-                            dangerouslySetInnerHTML={{
-                                __html: post.title.rendered,
-                            }}
-                        ></h2>
+                        <h2 className={"text-3xl my-5 text-center"}>
+                            <span
+                                dangerouslySetInnerHTML={{
+                                    __html: post.title.rendered,
+                                }}
+                            ></span>
+                            <div className={"text-lg text-gray-600"}>
+                                <Moment
+                                    date={post.date}
+                                    format={"MMMM DD, yyy"}
+                                />
+                            </div>
+                        </h2>
                         <div
                             className={"text-lg"}
                             dangerouslySetInnerHTML={{
@@ -41,10 +49,14 @@ const BlogList = ({ posts }: any) => {
                         ></div>
 
                         {has_break ? (
-                            <div className={"bg-gray-300 px-2 py-5 text-right"}>
+                            <div className={"bg-gray-100 px-2 py-5 text-right"}>
                                 Continue Reading
                             </div>
-                        ) : null}
+                        ) : (
+                            <div
+                                className={"bg-gray-100 px-2 py-5 text-right"}
+                            ></div>
+                        )}
                     </div>
                 );
             })}
