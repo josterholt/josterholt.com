@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.4.1",
+    "enlighterjs": "^3.4.0",
     "moment": "^2.29.1",
     "next": "11.0.1",
     "package.json": "^2.0.1",

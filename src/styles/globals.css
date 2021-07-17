@@ -3,15 +3,18 @@
 @layer base {
     html,
     body {
-        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-            Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+        font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
     }
 
     p {
         margin-top: 2em;
         margin-bottom: 2em;
     }
-}
 
+    .site-title {
+        font-family: "Terminal Dosis", Arial, Helvetica, Geneva, sans-serif;
+    }
+}
+@import "../styles/enlighterjs.dracula.min.css";
 @tailwind components;
 @tailwind utilities;

@@ -1040,6 +1040,11 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
+dom-magic@^1.0.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/dom-magic/-/dom-magic-1.1.0.tgz#c83fb36ac0bd6753cae8ffd370f70e987ea646ec"
+  integrity sha512-GCWjIdYEwEcvXc4sEAYWd1qjFwRkO3ZNLHF5Y5yxKqy7QXILq+o6SsrdMWjQJN6AZbyXjCHvvqKlnVaRtC5r3g==
+
 domain-browser@4.19.0:
   version "4.19.0"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-4.19.0.tgz#1093e17c0a17dbd521182fe90d49ac1370054af1"
@@ -1096,6 +1101,13 @@ encoding@0.1.13:
   integrity sha512-ETBauow1T35Y/WZMkio9jiM0Z5xjHHmJ4XmjZOq1l/dXz3lr2sRn87nJy20RupqSh1F2m3HHPSp8ShIPQJrJ3A==
   dependencies:
     iconv-lite "^0.6.2"
+
+enlighterjs@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/enlighterjs/-/enlighterjs-3.4.0.tgz#3c0be472d3791899463c4a7c8f7bff0dbaf09553"
+  integrity sha512-v2whT6DAgwfXW3ZkCumMaSSCVh0Z2f/+5xcHv9Fc7fWoXcBYlwnOSVzaKdXlytpPnqWZjdbDWwipYCyl9kGSJg==
+  dependencies:
+    dom-magic "^1.0.0"
 
 enquirer@^2.3.5:
   version "2.3.6"

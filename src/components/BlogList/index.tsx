@@ -37,7 +37,7 @@ const BlogList = ({ posts }: any) => {
                             <div className={"text-lg text-gray-600"}>
                                 <Moment
                                     date={post.date}
-                                    format={"MMMM DD, yyy"}
+                                    format={"MMMM D, yyy"}
                                 />
                             </div>
                         </h2>
